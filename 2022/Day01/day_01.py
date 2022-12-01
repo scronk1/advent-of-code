@@ -1,5 +1,5 @@
-input_data = open("Day01/input.txt", "r", encoding="utf-8").read()
-sample_data = open("Day01/sample.txt", "r", encoding="utf-8").read()
+input_data = open("2022/Day01/input.txt", "r", encoding="utf-8").read()
+sample_data = open("2022/Day01/sample.txt", "r", encoding="utf-8").read()
 
 def run(data, answer, answer_2):
     list_form = data.split("\n\n")

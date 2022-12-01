@@ -1,4 +1,4 @@
-text_input = open("Day6/input.txt", "r")
+text_input = open("2020/Day6/input.txt", "r")
 data = text_input.read().split("\n\n")
 
 
