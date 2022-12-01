@@ -4,10 +4,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2020
 Done in Python
-<br>
-Attempted days 1 - 9
-<br>
-Successfully completed days 1 - 4
+Successfully completed days 1 - 10
 
 
 ### 2022
