@@ -1,8 +1,11 @@
-input_data = open("2022/Template/input.txt", "r", encoding="utf-8").read()
-sample_data = open("2022/Template/sample.txt", "r", encoding="utf-8").read()
 
-def run(data):
-    print(data)
+def run():
+    data = get_data("sample")
+    # data = get_data("input")
 
-run(input_data)
-run(sample_data)
+
+def get_data(file_name):
+    return open(f"2022/Template/{file_name}.txt", "r", encoding="utf-8").read()
+
+
+run()
