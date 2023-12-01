@@ -15,50 +15,31 @@ const map: Record<string, string> = {
     nine: "9"
 }
 
-const makeString = (array: string[]) => {
-    let result = "";
-    for (let i of array) {
-        result += i;
-    }
-    return result;
-}
-
 const isWrittenDigit = (array: string[], index: number, digit: string): boolean => {
     const arrayCopy = [...array];
     const short = arrayCopy.slice(index, index + digit.length);
-    return makeString(short) == digit;
+    return short.join("") == digit;
 }
 
 // TODO: Complete Part 2
 let vals = []; 
 for (let row of input) {
-    let first = "";
-    let last = "";
-    let digits = [...row];
-    digits.forEach((value, index) => {
+    let letters = [...row];
+    let digits: string[] = []
+    letters.forEach((value, index) => {
         for (let written of ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]) {
-            if (isWrittenDigit(digits, index, written)) {
-                if (first) {
-                    last = map[written];
-                } else {
-                    first = map[written];
-                }
+            if (isWrittenDigit(letters, index, written)) {
+                digits.push(map[written]);
             }
         }
         if (Number.isInteger(Number(value)) && value != "") {
-            if (first) {
-                last = value;
-            } else {
-                first = value;
-            }
+            digits.push(value);
         }
     })
-    if (!last) {
-        last = first;
-    }
+    const first = digits[0];
+    const last = digits[digits.length - 1];
     vals.push(Number(`${first}${last}`));
 }
-
 
 
 // Solution

@@ -5,25 +5,12 @@ const input = parseInput();
 
 // TODO: Complete Part 1
 
-console.log(example)
-
 let vals = []; 
 for (let row of input) {
-    let first;
-    let second;
-    for (let letter of [...row]) {
-        if (Number.isInteger(Number(letter)) && letter != "") {
-            if (first) {
-                second = letter;
-            } else {
-                first = letter;
-            }
-        }
-    }
-    if (!second) {
-        second = first;
-    }
-    vals.push(Number(`${first}${second}`));
+    const digits = [...row].filter((x) => Number.isInteger(Number(x)));
+    let first = digits[0];
+    let last = digits[digits.length - 1];
+    vals.push(Number(`${first}${last}`));
 }
 
 
