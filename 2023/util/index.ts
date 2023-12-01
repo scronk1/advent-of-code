@@ -20,7 +20,16 @@ export const parseData = (fileName: string): any[] => {
             encoding: 'utf-8',
         }
     );
-    return input.split('\n');
+    const unsani = input.split('\n');
+    let sani = [];
+    for (let row of unsani) {
+        if (row.includes("\r")) {
+            sani.push(row.substring(0, row.length - 1));
+        } else {
+            sani.push(row);
+        }
+    }
+    return sani;
 }
 
 //

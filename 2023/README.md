@@ -6,4 +6,4 @@ Use the `.env` file determine which day and part is current. Use `npm start` to 
 
 | Day         | Part 1       | Part 2          |
 | ----------- | ------------ | --------------- |
-| 1           | :white_circle:    | :white_circle:       |
+| 1           | :white_check_mark:    | :white_check_mark:       |

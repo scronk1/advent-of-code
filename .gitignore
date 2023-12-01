@@ -8,3 +8,4 @@ idea
 2023/node_modules/*
 2023/dist
 2023/dist/*
+2023/.env
