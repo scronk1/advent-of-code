@@ -5,7 +5,6 @@ const input = parseInput();
 
 const data = input;
 
-
 // Get coords of all symbols
 const symbols: Coords[] = []
 for (let i in data) {
@@ -40,6 +39,13 @@ for (let i in data) {
             if (nearbySymbols.length > 0) {
                 nearby = true;
             }
+            // necessary if number is end of the line and there's no char after it
+            if (+j == items.length - 1 && startIndex >= 0 && nearby) {
+                const val = row.substring(startIndex, +j + 1);
+                console.log(val);
+                nos.push(+val);
+                sum += +val;
+            }
         } else {
             if (startIndex >= 0 && nearby) {
                 const val = row.substring(startIndex, +j);
@@ -52,8 +58,6 @@ for (let i in data) {
     }
 }
 
-console.log(nos.filter((x) => x == 297));
-
 
 // Solution
 module.exports = {
@@ -61,6 +65,9 @@ module.exports = {
 }
 
 // incorrect - 537,066 - too low
+// incorrect - 537,164 - too low
+// CORRECT - 538,046
+// total - 611,619
 
 type Coords = {
     i: number,
