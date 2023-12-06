@@ -12,6 +12,10 @@ export const parseExample = () => {
     return parseData("example");
 }
 
+export const parseAny = (fileName: string) => {
+    return parseData(fileName);
+}
+
 export const parseData = (fileName: string): any[] => {
     const day = Number(process.env.DAY);
     const input = readFileSync(
@@ -36,7 +40,7 @@ export const parseData = (fileName: string): any[] => {
 // Day Setup
 //
 
-export const dayExists = (day: number): boolean => existsSync(getDir(day) + "/input.txt")
+export const dayExists = (day: number): boolean => existsSync(getDir(day) + "/part1.ts")
 
 export const formatDay = (day: number | string) => day.toString().padStart(2, '0');
 
