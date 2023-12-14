@@ -19,3 +19,4 @@ Use the `.env` file determine which day and part is current. Use `npm start` to 
 | 11           | :white_check_mark:    | :white_check_mark:       |
 | 12           | :white_circle:    | :white_circle:       |
 | 13           | :white_check_mark:    | :white_check_mark:       |
+| 14           | :white_check_mark:    | :white_check_mark:       |
