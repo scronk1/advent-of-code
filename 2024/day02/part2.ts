@@ -46,7 +46,6 @@ for (let i=0; i < values.length; i++) {
   for (let j=0; j < report.length; j++) {
     let newReport = [...report];
     newReport.splice(j, 1);
-    isSafe(newReport);
     if (isSafe(newReport)) {
       count += 1;
       break;

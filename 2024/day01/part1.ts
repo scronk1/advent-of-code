@@ -13,7 +13,6 @@ input.map((row) => {
 });
 left.sort();
 right.sort();
-console.log(left, right);
 
 let sum = 0;
 left.map((x, i) => {
