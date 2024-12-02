@@ -4,8 +4,8 @@ idea
 
 .pytest_cache
 
-2023/node_modules
-2023/node_modules/*
-2023/dist
-2023/dist/*
-2023/.env
+*/node_modules
+*/node_modules/*
+*/dist
+*/dist/*
+*/.env
