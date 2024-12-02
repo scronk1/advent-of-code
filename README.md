@@ -9,3 +9,5 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 ### [2022](./2022/README.md)
 
 ### [2023](./2023/README.md)
+
+### [2024](./2024/README.md)
