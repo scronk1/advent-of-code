@@ -9,5 +9,6 @@ Use the `.env` file determine which day and part is current. Use `npm start` to 
 | 1           | :white_check_mark:    | :white_check_mark:       |
 | 2           | :white_check_mark:    | :white_check_mark:       |
 | 3           | :white_check_mark:    | :white_check_mark:       |
+| 4           | :white_check_mark:    | :white_check_mark:       |
 
 
