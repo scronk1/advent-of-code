@@ -1,50 +1,62 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+
+//
+// Useful methods
+//
+
+export const arraysEqual = (a: number[], b: number[]) => {
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+};
 
 //
 // Data parsing
 //
 
 export const parseInput = () => {
-    return parseData("input");
-}
+  return parseData("input");
+};
 
 export const parseExample = () => {
-    return parseData("example");
-}
+  return parseData("example");
+};
 
 export const parseAny = (fileName: string) => {
-    return parseData(fileName);
-}
+  return parseData(fileName);
+};
 
 export const parseData = (fileName: string): any[] => {
-    const day = Number(process.env.DAY);
-    const input = readFileSync(
-        `${getDir(day)}/${fileName}.txt`,
-        {
-            encoding: 'utf-8',
-        }
-    );
-    const unsani = input.split('\n');
-    let sani = [];
-    for (let row of unsani) {
-        if (row.includes("\r")) {
-            sani.push(row.substring(0, row.length - 1));
-        } else {
-            sani.push(row);
-        }
+  const day = Number(process.env.DAY);
+  const input = readFileSync(`${getDir(day)}/${fileName}.txt`, {
+    encoding: "utf-8",
+  });
+  const unsani = input.split("\n");
+  let sani = [];
+  for (let row of unsani) {
+    if (row.includes("\r")) {
+      sani.push(row.substring(0, row.length - 1));
+    } else {
+      sani.push(row);
     }
-    return sani;
-}
+  }
+  return sani;
+};
 
 //
 // Day Setup
 //
 
-export const dayExists = (day: number): boolean => existsSync(getDir(day) + "/part1.ts")
+export const dayExists = (day: number): boolean =>
+  existsSync(getDir(day) + "/part1.ts");
 
-export const formatDay = (day: number | string) => day.toString().padStart(2, '0');
+export const formatDay = (day: number | string) =>
+  day.toString().padStart(2, "0");
 
-export const getTemplate = (part: 1 | 2) => `import { parseInput, parseExample } from '../util';
+export const getTemplate = (
+  part: 1 | 2
+) => `import { parseInput, parseExample } from '../util';
 
 const example = parseExample();
 const input = parseInput();
@@ -59,15 +71,15 @@ module.exports = {
 `;
 
 export const setupDay = (day: number) => {
-    const dir = getDir(day);
-    console.log(`Setting up ${dir}`);
-    mkdirSync(dir);
-    writeFileSync(`${dir}/example.txt`, '');
-    writeFileSync(`${dir}/input.txt`, '');
-    writeFileSync(`${dir}/part1.ts`, getTemplate(1));
-    writeFileSync(`${dir}/part2.ts`, getTemplate(2));
+  const dir = getDir(day);
+  console.log(`Setting up ${dir}`);
+  mkdirSync(dir);
+  writeFileSync(`${dir}/example.txt`, "");
+  writeFileSync(`${dir}/input.txt`, "");
+  writeFileSync(`${dir}/part1.ts`, getTemplate(1));
+  writeFileSync(`${dir}/part2.ts`, getTemplate(2));
 };
 
 export const getDir = (day: number) => {
-    return `./day${formatDay(day)}`;
-}
+  return `./day${formatDay(day)}`;
+};
