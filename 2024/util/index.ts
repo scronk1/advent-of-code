@@ -11,6 +11,10 @@ export const arraysEqual = (a: number[], b: number[]) => {
   return true;
 };
 
+export const getMatrix = (input: string[]) => {
+  return input.map((row) => row.split(""));
+}
+
 //
 // Data parsing
 //
