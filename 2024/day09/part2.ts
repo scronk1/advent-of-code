@@ -9,6 +9,20 @@ const isEven = (n: number) => {
   return n === 0 || !!(n && !(n % 2));
 };
 
+const visualise = (testValues: (Space | Block)[]) => {
+  let ahh = "";
+  for (let value of testValues) {
+    for (let i = 0; i < value.length; i++) {
+      if (value instanceof Space) {
+        ahh += ".";
+      } else if (value instanceof Block) {
+        ahh += value.id.toString();
+      }
+    }
+  }
+  console.log(ahh.slice(0, 150));
+};
+
 class Block {
   id: number;
   length: number;
@@ -30,7 +44,7 @@ let id = 0;
 for (let i = 0; i < puzzle.length; i++) {
   const value = Number(puzzle[i]);
   if (isEven(i)) {
-    values.push(new Block(id, value));
+    values.push(new Block(id, value * Number(id.toString().length)));
     id += 1;
   } else {
     if (value !== 0) {
@@ -39,56 +53,68 @@ for (let i = 0; i < puzzle.length; i++) {
   }
 }
 
-let blocks = [...values].filter((x) => x instanceof Block).reverse();
+visualise(values);
+
+let blocks = [...values]
+  .filter((x) => x instanceof Block)
+  .sort((n1, n2) => {
+    if ("id" in n1 && "id" in n2) {
+      return n2.id - n1.id;
+    }
+    return 0;
+  });
 
 const runThrough = (inputValues: (Space | Block)[]) => {
   let tempValues = [...inputValues];
-  for (let j = 0; j < blocks.length; j++) {
-    const block = blocks[j];
-    const k = inputValues.indexOf(block);
-    for (let i = 0; i < k; i++) {
-      const value = inputValues[i];
-      if (value instanceof Space) {
-        if (value.length === block.length) {
-          tempValues.splice(
-            tempValues.indexOf(block),
-            1,
-            new Space(block.length)
-          );
-          tempValues[i] = block;
-          blocks.splice(j, 1);
-          return tempValues;
-        } else if (block.length < value.length) {
-          tempValues.splice(
-            tempValues.indexOf(block),
-            1,
-            new Space(block.length)
-          );
-          tempValues[i] = block;
-          tempValues.splice(i + 1, 0, new Space(value.length - block.length));
-          blocks.splice(j, 1);
-          return tempValues;
-        }
+  const block = blocks[0];
+  console.log(block);
+  const k = inputValues.indexOf(block);
+  for (let i = 0; i < k; i++) {
+    const value = inputValues[i];
+    if (value instanceof Space) {
+      if (value.length === block.length) {
+        tempValues.splice(
+          tempValues.indexOf(block),
+          1,
+          new Space(block.length)
+        );
+        tempValues[i] = block;
+        return tempValues;
+      } else if (block.length < value.length) {
+        tempValues.splice(
+          tempValues.indexOf(block),
+          1,
+          new Space(block.length)
+        );
+        tempValues[i] = block;
+        tempValues.splice(i + 1, 0, new Space(value.length - block.length));
+        return tempValues;
       }
     }
-    blocks.splice(j, 1);
-    j = j - 1;
   }
+  return tempValues;
 };
 
-let count = 0;
-let loop = true;
-let newValues = values;
-while (loop) {
-  count += 1;
-  let v = runThrough(newValues);
-  if (v) {
-    newValues = v;
+const condenseSpaces = (testValues: (Space | Block)[]) => {
+  for (let k = 0; k < testValues.length - 1; k++) {
+    const val = testValues[k];
+    if (val instanceof Space && testValues[k + 1] instanceof Space) {
+      testValues[k] = new Space(val.length + testValues[k + 1].length);
+      testValues.splice(k + 1, 1);
+    }
   }
-  if (count === 10) {
-    loop = false;
-  }
+  return testValues;
+};
+
+let newValues = runThrough(values);
+while (blocks.length > 0) {
+  const v = runThrough(newValues);
+  const k = condenseSpaces(v);
+  newValues = k;
+  blocks.splice(0, 1);
 }
+
+visualise(newValues);
 
 let index = -1;
 let sum = 0;
@@ -96,7 +122,7 @@ for (let value of newValues) {
   if (value instanceof Block) {
     for (let x = 1; x <= value.length; x++) {
       let pos = index + x;
-      sum += pos*value.id
+      sum += pos * value.id;
     }
   }
   index += value.length;
@@ -106,3 +132,8 @@ for (let value of newValues) {
 module.exports = {
   default: sum,
 };
+
+// 15769158320781 - too high
+// 15769158320781
+// 15769158320781
+// 148844622305722
