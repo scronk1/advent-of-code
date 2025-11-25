@@ -4,17 +4,13 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ## Results
 
-:white_check_mark: - Part completed
-<br>
-:no_entry: - Part attempted and failed
-<br>
-:white_circle: - Part not attempted
-
 ### 2025
 
 
 
 ### 2024
+
+20 :star:s
 
 1. :star: :star:
 2. :star: :star:
@@ -30,6 +26,8 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 
 ### 2023
+
+27 :star:s
 
 1. :star: :star:
 2. :star: :star:
@@ -48,6 +46,8 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 15. :star:
 
 ### 2022
+
+29 :star:s
 
 1. :star: :star:
 2. :star: :star:
@@ -70,6 +70,8 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2020
 
+19 :star:s
+
 1. :star: :star:
 2. :star: :star:
 3. :star: :star:
@@ -82,6 +84,8 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 10. :star:
 
 ### 2015
+
+12 :star:s
 
 1. :star: :star:
 2. :star: :star:
