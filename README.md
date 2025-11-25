@@ -10,7 +10,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2024
 
-20 :star:s
+20 :star:s - TypeScript
 
 1. :star: :star:
 2. :star: :star:
@@ -27,7 +27,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2023
 
-27 :star:s
+27 :star:s - TypeScript
 
 1. :star: :star:
 2. :star: :star:
@@ -47,7 +47,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2022
 
-29 :star:s
+29 :star:s - Python
 
 1. :star: :star:
 2. :star: :star:
@@ -70,7 +70,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2020
 
-19 :star:s
+19 :star:s - Python
 
 1. :star: :star:
 2. :star: :star:
@@ -85,7 +85,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 
 ### 2015
 
-12 :star:s
+12 :star:s - Python
 
 1. :star: :star:
 2. :star: :star:
