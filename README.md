@@ -9,6 +9,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 ?? :star:s - TypeScript
 
 1. :star: :star:
+2. :star: :star:
 
 
 ### 2024
