@@ -70,7 +70,7 @@ const input = parseInput();
 
 // Solution
 module.exports = {
-    default: 0
+  default: 0
 }
 `;
 
