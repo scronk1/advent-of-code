@@ -13,6 +13,7 @@ Personal repository to store and record progress in the [Advent of Code](https:/
 3. :star: :star:
 4. :star: :star:
 5. :star: :star:
+6. :star: :star:
 
 
 ### 2024
